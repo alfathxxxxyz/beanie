@@ -2,57 +2,111 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Beanie Lab — V3</title>
+<title>Beanie Lab — V4</title>
 <style>
-:root{--bg:#0b0b0b;--panel:#111;--line:#2a2a2a;--text:#f4f4f1;--muted:#8c8c86}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.wrap{max-width:1180px;margin:auto;padding:24px}header{display:flex;justify-content:space-between;align-items:end;gap:22px;margin-bottom:20px}h1{margin:0;font-size:clamp(44px,7vw,76px);line-height:.86;letter-spacing:-.07em}p{max-width:540px;margin:10px 0 0;color:var(--muted);font-size:13px;line-height:1.45}.controls{display:flex;gap:8px;flex-wrap:wrap}.controls input,.controls button{font:inherit;border:1px solid #343434;border-radius:999px;padding:10px 14px}.controls input{width:140px;background:#151515;color:#fff;outline:none}.controls button{background:#f3f3ef;color:#111;cursor:pointer}.controls .ghost{background:#151515;color:#f3f3ef}.layout{display:grid;grid-template-columns:1.04fr .96fr;gap:14px}.hero,.grid{border:1px solid var(--line);border-radius:26px;overflow:hidden;background:#0d0d0d}.hero{display:grid;grid-template-rows:1fr auto;min-height:620px}.heroVisual{min-height:535px;display:grid;place-items:center;padding:34px;background:#090909}.heroVisual svg{width:min(86%,500px);height:auto}.meta{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 18px;border-top:1px solid var(--line);background:#101010}.meta small{color:#777}.meta strong{font-size:18px;letter-spacing:-.02em}.badge{font-size:10px;color:#bbb;border:1px solid #343434;border-radius:999px;padding:6px 9px;white-space:nowrap}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;padding:1px;background:#202020;align-content:start}.card{aspect-ratio:1;background:#090909;display:grid;place-items:center;position:relative;overflow:hidden;cursor:pointer;transition:background .15s ease}.card:hover{background:#121212}.card svg{width:78%;height:78%}.card span{position:absolute;left:9px;bottom:8px;color:#6f6f6b;font-size:9px;letter-spacing:.02em}.note{text-align:center;color:#5e5e5a;font-size:10px;margin-top:12px}.pop{animation:pop .25s ease-out}@keyframes pop{from{transform:scale(.86);opacity:.25}to{transform:scale(1);opacity:1}}@media(max-width:850px){header{align-items:flex-start;flex-direction:column}.layout{grid-template-columns:1fr}.hero{min-height:500px}.heroVisual{min-height:420px}}@media(max-width:520px){.wrap{padding:14px}.grid{grid-template-columns:repeat(2,1fr)}.badge{white-space:normal;text-align:right}}
+:root{--bg:#0b0b0b;--panel:#111;--line:#242424;--text:#f4f4ef;--muted:#84847d}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.wrap{max-width:1180px;margin:auto;padding:24px}header{display:flex;justify-content:space-between;align-items:end;gap:22px;margin-bottom:20px}h1{margin:0;font-size:clamp(44px,7vw,76px);line-height:.86;letter-spacing:-.07em}p{max-width:560px;margin:10px 0 0;color:var(--muted);font-size:13px;line-height:1.45}.controls{display:flex;gap:8px;flex-wrap:wrap}.controls input,.controls button{font:inherit;border:1px solid #343434;border-radius:999px;padding:10px 14px}.controls input{width:140px;background:#151515;color:#fff;outline:none}.controls button{background:#f3f3ef;color:#111;cursor:pointer}.controls .ghost{background:#151515;color:#f3f3ef}.layout{display:grid;grid-template-columns:1.04fr .96fr;gap:14px}.hero,.grid{border:1px solid var(--line);border-radius:26px;overflow:hidden;background:#0d0d0d}.hero{display:grid;grid-template-rows:1fr auto;min-height:620px}.heroVisual{min-height:535px;display:grid;place-items:center;padding:34px;background:#090909}.heroVisual svg{width:min(86%,500px);height:auto}.meta{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 18px;border-top:1px solid var(--line);background:#101010}.meta small{color:#777}.meta strong{font-size:18px;letter-spacing:-.02em}.badge{font-size:10px;color:#bbb;border:1px solid #343434;border-radius:999px;padding:6px 9px;white-space:nowrap}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;padding:1px;background:#202020;align-content:start}.card{aspect-ratio:1;background:#090909;display:grid;place-items:center;position:relative;overflow:hidden;cursor:pointer;transition:background .15s ease}.card:hover{background:#121212}.card svg{width:78%;height:78%}.card span{position:absolute;left:9px;bottom:8px;color:#6f6f6b;font-size:9px;letter-spacing:.02em}.note{text-align:center;color:#5e5e5a;font-size:10px;margin-top:12px}.pop{animation:pop .25s ease-out}@keyframes pop{from{transform:scale(.86);opacity:.25}to{transform:scale(1);opacity:1}}@media(max-width:850px){header{align-items:flex-start;flex-direction:column}.layout{grid-template-columns:1fr}.hero{min-height:500px}.heroVisual{min-height:420px}}@media(max-width:520px){.wrap{padding:14px}.grid{grid-template-columns:repeat(2,1fr)}.badge{white-space:normal;text-align:right}}
 </style>
 </head>
 <body>
 <div class="wrap">
-<header><div><h1>BEANIE<br>LAB V3.</h1><p>Silhouette-first procedural beans. No outline, no shadow, no gloss. Two eyes, clean curves, controlled shape families.</p></div><div class="controls"><input id="seed" value="420"><button class="ghost" id="use">Use seed</button><button id="random">Generate</button></div></header>
+<header><div><h1>BEANIE<br>LAB V4.</h1><p>Bean-first procedural shapes. Clean silhouette, no stroke, simple eyes, and controlled randomness so every variation still reads clearly as a beanie.</p></div><div class="controls"><input id="seed" value="420"><button class="ghost" id="use">Use seed</button><button id="random">Generate</button></div></header>
 <div class="layout"><section class="hero"><div class="heroVisual" id="hero"></div><div class="meta"><div><small>SELECTED</small><br><strong id="name">BEAN #420</strong></div><div class="badge" id="traits">—</div></div></section><section class="grid" id="grid"></section></div>
 <div class="note">visual generator prototype only</div>
 </div>
 <script>
 const palettes=[
-{name:'CYAN',a:'#12cbd0',b:'#18c6cb',eye:'#071415'},
-{name:'SKY',a:'#36aef0',b:'#3aa8e9',eye:'#08131b'},
-{name:'POWDER',a:'#a9cdf8',b:'#a4c7ef',eye:'#101116'},
-{name:'PERI',a:'#aebaf4',b:'#a8b3ec',eye:'#11121a'},
-{name:'BLUSH',a:'#edcfd3',b:'#e8c9cd',eye:'#1d1215'},
-{name:'LILAC',a:'#dfb6ef',b:'#dab0e9',eye:'#1a111c'},
-{name:'PINK',a:'#e86598',b:'#df6093',eye:'#211016'},
-{name:'CORAL',a:'#ff8557',b:'#f77f54',eye:'#24120b'},
-{name:'ORANGE',a:'#ec7600',b:'#e57200',eye:'#221303'},
-{name:'GOLD',a:'#d98700',b:'#d18200',eye:'#241702'},
-{name:'CREAM',a:'#e5dfc9',b:'#dfdac5',eye:'#191811'},
-{name:'ICE',a:'#c6dfe3',b:'#c0d8dc',eye:'#111719'},
-{name:'TEAL',a:'#19404a',b:'#1b3c45',eye:'#e9f0ec'},
-{name:'FOREST',a:'#203a28',b:'#243724',eye:'#e7eee7'},
-{name:'COCOA',a:'#4d3328',b:'#493028',eye:'#f3e9e2'},
-{name:'PLUM',a:'#4b3035',b:'#473035',eye:'#f2e8e6'}
+{name:'CYAN',a:'#14c9ce',b:'#18c3c8',eye:'#071415'},
+{name:'SKY',a:'#37adef',b:'#3aa7e8',eye:'#08131b'},
+{name:'POWDER',a:'#b2cff7',b:'#abc8ef',eye:'#101116'},
+{name:'PERI',a:'#bbc6fb',b:'#b4bff3',eye:'#11121a'},
+{name:'BLUSH',a:'#ead9dc',b:'#e4d2d5',eye:'#1d1215'},
+{name:'LILAC',a:'#d8bdef',b:'#d1b5e8',eye:'#1a111c'},
+{name:'PINK',a:'#e76c98',b:'#df6691',eye:'#211016'},
+{name:'CORAL',a:'#ff9261',b:'#f58b5e',eye:'#24120b'},
+{name:'ORANGE',a:'#eb7700',b:'#e37400',eye:'#221303'},
+{name:'GOLD',a:'#d68e05',b:'#ce8804',eye:'#241702'},
+{name:'CREAM',a:'#e4dfce',b:'#ddd8c7',eye:'#191811'},
+{name:'ICE',a:'#cfe0e3',b:'#c8d9dc',eye:'#111719'},
+{name:'TEAL',a:'#1e4650',b:'#21414b',eye:'#e9f0ec'},
+{name:'FOREST',a:'#223d2a',b:'#263a27',eye:'#e7eee7'},
+{name:'COCOA',a:'#52382d',b:'#4c342c',eye:'#f3e9e2'},
+{name:'PLUM',a:'#553a40',b:'#503840',eye:'#f2e8e6'}
 ];
 const families=[
-{name:'ROUND',pts:[[50,9],[68,12],[82,24],[89,42],[87,61],[77,78],[61,89],[42,90],[25,82],[14,67],[11,49],[16,30],[30,16]]},
-{name:'SQUIRCLE',pts:[[33,10],[67,10],[83,16],[90,31],[90,68],[83,84],[68,90],[32,90],[16,84],[10,68],[10,32],[16,17]]},
-{name:'PEBBLE',pts:[[44,9],[64,12],[81,23],[88,41],[85,61],[73,80],[53,89],[32,86],[16,72],[11,51],[17,31],[28,16]]},
-{name:'WIDE',pts:[[34,18],[64,17],[82,25],[92,41],[88,58],[75,72],[54,80],[32,78],[14,67],[7,50],[13,33]]},
-{name:'TALL',pts:[[50,5],[65,10],[76,25],[79,45],[75,66],[66,84],[51,95],[35,88],[25,71],[22,48],[26,27],[36,11]]},
-{name:'DROP',pts:[[50,5],[68,14],[80,31],[81,51],[72,70],[58,84],[47,96],[34,83],[20,67],[15,48],[21,29],[34,13]]},
-{name:'BEAN',pts:[[43,8],[63,11],[79,24],[82,40],[72,51],[68,60],[78,72],[72,86],[55,94],[36,89],[23,76],[24,61],[16,48],[20,31],[30,16]]},
-{name:'CLOUD',pts:[[29,20],[39,11],[52,13],[61,8],[71,15],[83,18],[88,30],[84,40],[91,50],[85,62],[78,70],[64,73],[55,82],[42,79],[32,84],[21,76],[20,65],[12,56],[15,44],[10,34],[18,24]]},
-{name:'PUFF',pts:[[35,14],[43,7],[53,12],[62,7],[70,15],[80,14],[83,24],[91,29],[87,39],[92,49],[86,57],[89,68],[79,72],[74,82],[63,80],[54,89],[45,83],[35,88],[28,78],[18,77],[17,66],[9,60],[14,50],[8,41],[17,34],[17,24],[27,22]]},
-{name:'MELT',pts:[[33,11],[67,11],[81,20],[88,35],[87,56],[80,70],[69,78],[66,90],[58,94],[52,85],[47,91],[38,84],[31,90],[24,82],[22,71],[14,59],[12,42],[17,26]]}
+{name:'CLASSIC',sx:[0.98,1.03],sy:[0.98,1.03],pinch:[6,9],bottom:[0,1.5],lean:[-1.5,1.5],jitter:.75},
+{name:'CHONKY',sx:[1.04,1.10],sy:[0.94,0.99],pinch:[5.5,8],bottom:[-1,1],lean:[-1.4,1.4],jitter:.7},
+{name:'SLIM',sx:[0.90,0.96],sy:[1.02,1.10],pinch:[7,10],bottom:[0,2],lean:[-1.2,1.2],jitter:.65},
+{name:'TALL',sx:[0.93,0.99],sy:[1.08,1.16],pinch:[5.5,8],bottom:[1,3],lean:[-1.1,1.1],jitter:.7},
+{name:'BABY',sx:[0.99,1.05],sy:[0.95,1.00],pinch:[6,8],bottom:[-1,1],lean:[-1,1],jitter:.62},
+{name:'LEAN',sx:[0.97,1.02],sy:[0.99,1.05],pinch:[6,9],bottom:[0,2],lean:[-3.2,3.2],jitter:.7}
 ];
 function hash(s){let h=2166136261>>>0;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}h+=h<<13;h^=h>>>7;h+=h<<3;h^=h>>>17;h+=h<<5;return h>>>0}
 function rng(seed){let a=hash(String(seed));return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
 const n=(r,a,b)=>a+(b-a)*r(),pick=(r,a)=>a[Math.floor(r()*a.length)];
 function smoothPath(p,tension=.92){let d=`M ${p[0][0]} ${p[0][1]}`,L=p.length,k=tension/6;for(let i=0;i<L;i++){let p0=p[(i-1+L)%L],p1=p[i],p2=p[(i+1)%L],p3=p[(i+2)%L],c1=[p1[0]+(p2[0]-p0[0])*k,p1[1]+(p2[1]-p0[1])*k],c2=[p2[0]-(p3[0]-p1[0])*k,p2[1]-(p3[1]-p1[1])*k];d+=` C ${c1[0].toFixed(2)} ${c1[1].toFixed(2)}, ${c2[0].toFixed(2)} ${c2[1].toFixed(2)}, ${p2[0].toFixed(2)} ${p2[1].toFixed(2)}`}return d+' Z'}
-function buildBody(seed){const r=rng(seed+'shape-v3');let familyIndex=Math.floor(r()*families.length);const f=families[familyIndex],sx=n(r,.94,1.055),sy=n(r,.94,1.055),tilt=n(r,-3.2,3.2),jitter=(f.name==='PUFF'||f.name==='CLOUD')?.8:1.25;let pts=f.pts.map((p,i)=>[50+(p[0]-50)*sx+tilt*(p[1]-50)/55+n(r,-jitter,jitter),50+(p[1]-50)*sy+n(r,-jitter*.7,jitter*.7)]);return{name:f.name,d:smoothPath(pts,f.name==='PUFF'?.78:f.name==='CLOUD'?.82:.94),tilt}}
-function make(seed){const r=rng(seed+'style-v3'),pal=pick(r,palettes),body=buildBody(seed),gap=n(r,12,19),eyeH=n(r,10.5,15),eyeW=n(r,3.4,5.2),eyeY=n(r,43,51),lean=n(r,-1.1,1.1),rotation=n(r,-4,4),useGradient=r()<.72,id='g'+hash(seed+'grad').toString(36);let fill=pal.a,defs='';if(useGradient){defs=`<defs><linearGradient id="${id}" x1="15%" y1="10%" x2="85%" y2="90%"><stop offset="0" stop-color="${pal.a}"/><stop offset="1" stop-color="${pal.b}"/></linearGradient></defs>`;fill=`url(#${id})`}const eyes=`<rect x="${(50-gap/2-eyeW/2).toFixed(2)}" y="${(eyeY-eyeH/2).toFixed(2)}" width="${eyeW.toFixed(2)}" height="${eyeH.toFixed(2)}" rx="${(eyeW/2).toFixed(2)}" fill="${pal.eye}" transform="rotate(${lean} ${50-gap/2} ${eyeY})"/><rect x="${(50+gap/2-eyeW/2).toFixed(2)}" y="${(eyeY-eyeH/2).toFixed(2)}" width="${eyeW.toFixed(2)}" height="${eyeH.toFixed(2)}" rx="${(eyeW/2).toFixed(2)}" fill="${pal.eye}" transform="rotate(${lean} ${50+gap/2} ${eyeY})"/>`;const svg=`<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="Bean ${seed}">${defs}<g transform="rotate(${rotation.toFixed(2)} 50 50)"><path d="${body.d}" fill="${fill}"/>${eyes}</g></svg>`;return{svg,traits:`${body.name} · ${pal.name} · ${useGradient?'SOFT TONE':'FLAT'}`}}
+function buildBean(seed){
+  const r=rng(seed+'bean-v4');
+  const fam=pick(r,families);
+  const sx=n(r,fam.sx[0],fam.sx[1]);
+  const sy=n(r,fam.sy[0],fam.sy[1]);
+  const lean=n(r,fam.lean[0],fam.lean[1]);
+  const pinch=n(r,fam.pinch[0],fam.pinch[1]);
+  const pinchSide=r()<.5?-1:1;
+  const bottomPush=n(r,fam.bottom[0],fam.bottom[1]);
+  const topLift=n(r,-1.2,1.2);
+  const cheek=n(r,1.2,3.5);
+  const shoulder=n(r,-1.8,1.8);
+  const jitter=fam.jitter;
+  let pts=[
+    [50,10+topLift],
+    [64+shoulder,12],
+    [76,22],
+    [81,36],
+    [80-pinchSide*cheek,49],
+    [73-pinchSide*pinch,61],
+    [76,74],
+    [61,86+bottomPush],
+    [47,91+bottomPush],
+    [32,87],
+    [20,76],
+    [16+pinchSide*pinch,61],
+    [18+pinchSide*cheek,45],
+    [21,29],
+    [31-shoulder*.35,16]
+  ];
+  pts=pts.map((p,i)=>{
+    const edgeBoost=(i===0||i===8)?0.5:1;
+    const x=50+(p[0]-50)*sx+lean*(p[1]-50)/55+n(r,-jitter,jitter)*edgeBoost;
+    const y=50+(p[1]-50)*sy+n(r,-jitter*.65,jitter*.65)*edgeBoost;
+    return [x,y];
+  });
+  return {name:fam.name,d:smoothPath(pts,.94)};
+}
+function make(seed){
+  const r=rng(seed+'style-v4');
+  const pal=pick(r,palettes);
+  const bean=buildBean(seed);
+  const gap=n(r,11.5,16.5);
+  const eyeH=n(r,10.5,14.5);
+  const eyeW=n(r,3.3,4.9);
+  const eyeY=n(r,44,50);
+  const eyeTilt=n(r,-5,5);
+  const wholeTilt=n(r,-4,4);
+  const useGradient=r()<.66;
+  const id='g'+hash(seed+'grad').toString(36);
+  let defs='',fill=pal.a;
+  if(useGradient){defs=`<defs><linearGradient id="${id}" x1="28%" y1="18%" x2="72%" y2="82%"><stop offset="0" stop-color="${pal.a}"/><stop offset="1" stop-color="${pal.b}"/></linearGradient></defs>`;fill=`url(#${id})`;}
+  const leftX=50-gap/2-eyeW/2,rightX=50+gap/2-eyeW/2;
+  const eyes=`<rect x="${leftX.toFixed(2)}" y="${(eyeY-eyeH/2).toFixed(2)}" width="${eyeW.toFixed(2)}" height="${eyeH.toFixed(2)}" rx="${(eyeW/2).toFixed(2)}" fill="${pal.eye}" transform="rotate(${eyeTilt.toFixed(2)} ${(50-gap/2).toFixed(2)} ${eyeY.toFixed(2)})"/><rect x="${rightX.toFixed(2)}" y="${(eyeY-eyeH/2).toFixed(2)}" width="${eyeW.toFixed(2)}" height="${eyeH.toFixed(2)}" rx="${(eyeW/2).toFixed(2)}" fill="${pal.eye}" transform="rotate(${eyeTilt.toFixed(2)} ${(50+gap/2).toFixed(2)} ${eyeY.toFixed(2)})"/>`;
+  const svg=`<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="Bean ${seed}">${defs}<g transform="rotate(${wholeTilt.toFixed(2)} 50 50)"><path d="${bean.d}" fill="${fill}"/>${eyes}</g></svg>`;
+  return {svg,traits:`${bean.name} · ${pal.name} · ${useGradient?'SOFT TONE':'FLAT'}`};
+}
 function show(seed,anim=true){const x=make(seed),h=document.getElementById('hero');h.innerHTML=x.svg;if(anim)h.firstElementChild.classList.add('pop');document.getElementById('name').textContent='BEAN #'+seed;document.getElementById('traits').textContent=x.traits;document.getElementById('seed').value=seed}
 function fillGrid(base){const g=document.getElementById('grid');g.innerHTML='';let start=Number(base)||1;for(let i=0;i<18;i++){const seed=String(start+i),x=make(seed),c=document.createElement('div');c.className='card';c.innerHTML=x.svg+`<span>#${seed}</span>`;c.onclick=()=>show(seed);g.appendChild(c)}}
-document.getElementById('use').onclick=()=>{const s=document.getElementById('seed').value.trim()||'1';show(s);fillGrid(s)};document.getElementById('random').onclick=()=>{const s=Math.floor(Math.random()*99999)+1;show(s);fillGrid(s)};document.getElementById('seed').onkeydown=e=>{if(e.key==='Enter')document.getElementById('use').click()};
+document.getElementById('use').onclick=()=>{const s=document.getElementById('seed').value.trim()||'1';show(s);fillGrid(s)};
+document.getElementById('random').onclick=()=>{const s=Math.floor(Math.random()*99999)+1;show(s);fillGrid(s)};
+document.getElementById('seed').onkeydown=e=>{if(e.key==='Enter')document.getElementById('use').click()};
 show('420',false);fillGrid(420);
 </script>
-</body></html>
+</body>
+</html>
