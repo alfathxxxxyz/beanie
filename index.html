@@ -2,111 +2,53 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Beanie Lab — V4</title>
+<title>Beanie Lab — V5</title>
 <style>
-:root{--bg:#0b0b0b;--panel:#111;--line:#242424;--text:#f4f4ef;--muted:#84847d}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.wrap{max-width:1180px;margin:auto;padding:24px}header{display:flex;justify-content:space-between;align-items:end;gap:22px;margin-bottom:20px}h1{margin:0;font-size:clamp(44px,7vw,76px);line-height:.86;letter-spacing:-.07em}p{max-width:560px;margin:10px 0 0;color:var(--muted);font-size:13px;line-height:1.45}.controls{display:flex;gap:8px;flex-wrap:wrap}.controls input,.controls button{font:inherit;border:1px solid #343434;border-radius:999px;padding:10px 14px}.controls input{width:140px;background:#151515;color:#fff;outline:none}.controls button{background:#f3f3ef;color:#111;cursor:pointer}.controls .ghost{background:#151515;color:#f3f3ef}.layout{display:grid;grid-template-columns:1.04fr .96fr;gap:14px}.hero,.grid{border:1px solid var(--line);border-radius:26px;overflow:hidden;background:#0d0d0d}.hero{display:grid;grid-template-rows:1fr auto;min-height:620px}.heroVisual{min-height:535px;display:grid;place-items:center;padding:34px;background:#090909}.heroVisual svg{width:min(86%,500px);height:auto}.meta{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 18px;border-top:1px solid var(--line);background:#101010}.meta small{color:#777}.meta strong{font-size:18px;letter-spacing:-.02em}.badge{font-size:10px;color:#bbb;border:1px solid #343434;border-radius:999px;padding:6px 9px;white-space:nowrap}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;padding:1px;background:#202020;align-content:start}.card{aspect-ratio:1;background:#090909;display:grid;place-items:center;position:relative;overflow:hidden;cursor:pointer;transition:background .15s ease}.card:hover{background:#121212}.card svg{width:78%;height:78%}.card span{position:absolute;left:9px;bottom:8px;color:#6f6f6b;font-size:9px;letter-spacing:.02em}.note{text-align:center;color:#5e5e5a;font-size:10px;margin-top:12px}.pop{animation:pop .25s ease-out}@keyframes pop{from{transform:scale(.86);opacity:.25}to{transform:scale(1);opacity:1}}@media(max-width:850px){header{align-items:flex-start;flex-direction:column}.layout{grid-template-columns:1fr}.hero{min-height:500px}.heroVisual{min-height:420px}}@media(max-width:520px){.wrap{padding:14px}.grid{grid-template-columns:repeat(2,1fr)}.badge{white-space:normal;text-align:right}}
+:root{--bg:#0b0b0b;--panel:#101010;--line:#242424;--text:#f4f4ef;--muted:#85857f}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.wrap{max-width:1200px;margin:auto;padding:24px}header{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:20px}h1{margin:0;font-size:clamp(44px,7vw,78px);line-height:.86;letter-spacing:-.07em}p{max-width:585px;margin:10px 0 0;color:var(--muted);font-size:13px;line-height:1.48}.controls{display:flex;gap:8px;flex-wrap:wrap}.controls input,.controls button{font:inherit;border:1px solid #343434;border-radius:999px;padding:10px 14px}.controls input{width:140px;background:#151515;color:#fff;outline:none}.controls button{background:#f3f3ef;color:#111;cursor:pointer}.controls .ghost{background:#151515;color:#f3f3ef}.layout{display:grid;grid-template-columns:1.04fr .96fr;gap:14px}.hero,.grid{border:1px solid var(--line);border-radius:26px;overflow:hidden;background:#0e0e0e}.hero{display:grid;grid-template-rows:1fr auto;min-height:650px}.heroVisual{min-height:560px;display:grid;place-items:center;padding:28px;background:radial-gradient(circle at 50% 45%,#151515 0,#0a0a0a 68%)}.heroVisual svg{width:min(92%,550px);height:auto;overflow:visible}.meta{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 18px;border-top:1px solid var(--line);background:#101010}.meta small{color:#777}.meta strong{font-size:18px;letter-spacing:-.02em}.badge{font-size:10px;color:#bbb;border:1px solid #343434;border-radius:999px;padding:6px 9px;white-space:nowrap}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;padding:1px;background:#202020;align-content:start}.card{aspect-ratio:1;background:#090909;display:grid;place-items:center;position:relative;overflow:hidden;cursor:pointer;transition:background .15s ease}.card:hover{background:#121212}.card svg{width:88%;height:88%;overflow:visible}.card span{position:absolute;left:9px;bottom:8px;color:#666661;font-size:9px}.note{text-align:center;color:#5e5e5a;font-size:10px;margin-top:12px}.pop{animation:pop .28s cubic-bezier(.2,.85,.25,1.08)}@keyframes pop{from{transform:scale(.83) translateY(6px);opacity:.2}to{transform:scale(1);opacity:1}}@media(max-width:850px){header{align-items:flex-start;flex-direction:column}.layout{grid-template-columns:1fr}.hero{min-height:520px}.heroVisual{min-height:440px}}@media(max-width:520px){.wrap{padding:14px}.grid{grid-template-columns:repeat(2,1fr)}.badge{white-space:normal;text-align:right}}
 </style>
 </head>
 <body>
 <div class="wrap">
-<header><div><h1>BEANIE<br>LAB V4.</h1><p>Bean-first procedural shapes. Clean silhouette, no stroke, simple eyes, and controlled randomness so every variation still reads clearly as a beanie.</p></div><div class="controls"><input id="seed" value="420"><button class="ghost" id="use">Use seed</button><button id="random">Generate</button></div></header>
+<header><div><h1>BEANIE<br>LAB V5.</h1><p>One Beanie species, many personalities. Controlled body proportions, expressive faces, simple limb poses, and restrained 2.5D shading — deterministic from the seed.</p></div><div class="controls"><input id="seed" value="420"><button class="ghost" id="use">Use seed</button><button id="random">Generate</button></div></header>
 <div class="layout"><section class="hero"><div class="heroVisual" id="hero"></div><div class="meta"><div><small>SELECTED</small><br><strong id="name">BEAN #420</strong></div><div class="badge" id="traits">—</div></div></section><section class="grid" id="grid"></section></div>
 <div class="note">visual generator prototype only</div>
 </div>
 <script>
 const palettes=[
-{name:'CYAN',a:'#14c9ce',b:'#18c3c8',eye:'#071415'},
-{name:'SKY',a:'#37adef',b:'#3aa7e8',eye:'#08131b'},
-{name:'POWDER',a:'#b2cff7',b:'#abc8ef',eye:'#101116'},
-{name:'PERI',a:'#bbc6fb',b:'#b4bff3',eye:'#11121a'},
-{name:'BLUSH',a:'#ead9dc',b:'#e4d2d5',eye:'#1d1215'},
-{name:'LILAC',a:'#d8bdef',b:'#d1b5e8',eye:'#1a111c'},
-{name:'PINK',a:'#e76c98',b:'#df6691',eye:'#211016'},
-{name:'CORAL',a:'#ff9261',b:'#f58b5e',eye:'#24120b'},
-{name:'ORANGE',a:'#eb7700',b:'#e37400',eye:'#221303'},
-{name:'GOLD',a:'#d68e05',b:'#ce8804',eye:'#241702'},
-{name:'CREAM',a:'#e4dfce',b:'#ddd8c7',eye:'#191811'},
-{name:'ICE',a:'#cfe0e3',b:'#c8d9dc',eye:'#111719'},
-{name:'TEAL',a:'#1e4650',b:'#21414b',eye:'#e9f0ec'},
-{name:'FOREST',a:'#223d2a',b:'#263a27',eye:'#e7eee7'},
-{name:'COCOA',a:'#52382d',b:'#4c342c',eye:'#f3e9e2'},
-{name:'PLUM',a:'#553a40',b:'#503840',eye:'#f2e8e6'}
+{name:'LIME',top:'#b7f458',mid:'#72d41f',low:'#42a914',limb:'#59b719',face:'#102006'},
+{name:'BLUE',top:'#78d8ff',mid:'#249fe8',low:'#1674c3',limb:'#2188ca',face:'#071722'},
+{name:'PINK',top:'#ffb3c9',mid:'#ef6898',low:'#c84677',limb:'#d95182',face:'#2a0d18'},
+{name:'PURPLE',top:'#c6a4ff',mid:'#8662df',low:'#5f43bb',limb:'#7252ca',face:'#160d2b'},
+{name:'ORANGE',top:'#ffc37e',mid:'#f4872e',low:'#cc5d15',limb:'#db6c1d',face:'#2b1206'},
+{name:'MINT',top:'#a8f2dc',mid:'#54cfae',low:'#2d9e83',limb:'#3caf93',face:'#0a211b'},
+{name:'YELLOW',top:'#fff18a',mid:'#e8bf2b',low:'#bd8d11',limb:'#d0a31a',face:'#2b2106'},
+{name:'CORAL',top:'#ffb09a',mid:'#f26d54',low:'#c94735',limb:'#d75542',face:'#2c0e09'},
+{name:'ICE',top:'#e2f2ff',mid:'#a9cdef',low:'#739ecb',limb:'#87afd5',face:'#0c1723'},
+{name:'COCOA',top:'#926958',mid:'#674538',low:'#442b24',limb:'#55372e',face:'#f5ebe4'},
+{name:'CHARCOAL',top:'#77767c',mid:'#4b4a50',low:'#2d2c31',limb:'#3b3a40',face:'#f7f4ee'},
+{name:'PEACH',top:'#ffd3a8',mid:'#e9a16d',low:'#bd7147',limb:'#cf8355',face:'#2a160c'}
 ];
-const families=[
-{name:'CLASSIC',sx:[0.98,1.03],sy:[0.98,1.03],pinch:[6,9],bottom:[0,1.5],lean:[-1.5,1.5],jitter:.75},
-{name:'CHONKY',sx:[1.04,1.10],sy:[0.94,0.99],pinch:[5.5,8],bottom:[-1,1],lean:[-1.4,1.4],jitter:.7},
-{name:'SLIM',sx:[0.90,0.96],sy:[1.02,1.10],pinch:[7,10],bottom:[0,2],lean:[-1.2,1.2],jitter:.65},
-{name:'TALL',sx:[0.93,0.99],sy:[1.08,1.16],pinch:[5.5,8],bottom:[1,3],lean:[-1.1,1.1],jitter:.7},
-{name:'BABY',sx:[0.99,1.05],sy:[0.95,1.00],pinch:[6,8],bottom:[-1,1],lean:[-1,1],jitter:.62},
-{name:'LEAN',sx:[0.97,1.02],sy:[0.99,1.05],pinch:[6,9],bottom:[0,2],lean:[-3.2,3.2],jitter:.7}
+const builds=[
+{name:'CLASSIC',w:[31,34],h:[38,41],waist:[3.2,5.2],top:[0,1.6],belly:[0,2]},
+{name:'CHONKY',w:[35,38],h:[35,38],waist:[2.2,4.2],top:[0,1.2],belly:[1.5,3.5]},
+{name:'TALL',w:[29,32],h:[42,46],waist:[3,4.8],top:[0,1.8],belly:[0,1.5]},
+{name:'SLIM',w:[27,30],h:[39,43],waist:[4.2,6],top:[.5,2],belly:[-1,.7]},
+{name:'BABY',w:[31,34],h:[33,36],waist:[2.8,4.5],top:[-1,.6],belly:[1,2.5]},
+{name:'PEAR',w:[31,34],h:[39,42],waist:[3.5,5.5],top:[-2,-.5],belly:[2,4]}
 ];
 function hash(s){let h=2166136261>>>0;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}h+=h<<13;h^=h>>>7;h+=h<<3;h^=h>>>17;h+=h<<5;return h>>>0}
 function rng(seed){let a=hash(String(seed));return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
 const n=(r,a,b)=>a+(b-a)*r(),pick=(r,a)=>a[Math.floor(r()*a.length)];
-function smoothPath(p,tension=.92){let d=`M ${p[0][0]} ${p[0][1]}`,L=p.length,k=tension/6;for(let i=0;i<L;i++){let p0=p[(i-1+L)%L],p1=p[i],p2=p[(i+1)%L],p3=p[(i+2)%L],c1=[p1[0]+(p2[0]-p0[0])*k,p1[1]+(p2[1]-p0[1])*k],c2=[p2[0]-(p3[0]-p1[0])*k,p2[1]-(p3[1]-p1[1])*k];d+=` C ${c1[0].toFixed(2)} ${c1[1].toFixed(2)}, ${c2[0].toFixed(2)} ${c2[1].toFixed(2)}, ${p2[0].toFixed(2)} ${p2[1].toFixed(2)}`}return d+' Z'}
-function buildBean(seed){
-  const r=rng(seed+'bean-v4');
-  const fam=pick(r,families);
-  const sx=n(r,fam.sx[0],fam.sx[1]);
-  const sy=n(r,fam.sy[0],fam.sy[1]);
-  const lean=n(r,fam.lean[0],fam.lean[1]);
-  const pinch=n(r,fam.pinch[0],fam.pinch[1]);
-  const pinchSide=r()<.5?-1:1;
-  const bottomPush=n(r,fam.bottom[0],fam.bottom[1]);
-  const topLift=n(r,-1.2,1.2);
-  const cheek=n(r,1.2,3.5);
-  const shoulder=n(r,-1.8,1.8);
-  const jitter=fam.jitter;
-  let pts=[
-    [50,10+topLift],
-    [64+shoulder,12],
-    [76,22],
-    [81,36],
-    [80-pinchSide*cheek,49],
-    [73-pinchSide*pinch,61],
-    [76,74],
-    [61,86+bottomPush],
-    [47,91+bottomPush],
-    [32,87],
-    [20,76],
-    [16+pinchSide*pinch,61],
-    [18+pinchSide*cheek,45],
-    [21,29],
-    [31-shoulder*.35,16]
-  ];
-  pts=pts.map((p,i)=>{
-    const edgeBoost=(i===0||i===8)?0.5:1;
-    const x=50+(p[0]-50)*sx+lean*(p[1]-50)/55+n(r,-jitter,jitter)*edgeBoost;
-    const y=50+(p[1]-50)*sy+n(r,-jitter*.65,jitter*.65)*edgeBoost;
-    return [x,y];
-  });
-  return {name:fam.name,d:smoothPath(pts,.94)};
-}
-function make(seed){
-  const r=rng(seed+'style-v4');
-  const pal=pick(r,palettes);
-  const bean=buildBean(seed);
-  const gap=n(r,11.5,16.5);
-  const eyeH=n(r,10.5,14.5);
-  const eyeW=n(r,3.3,4.9);
-  const eyeY=n(r,44,50);
-  const eyeTilt=n(r,-5,5);
-  const wholeTilt=n(r,-4,4);
-  const useGradient=r()<.66;
-  const id='g'+hash(seed+'grad').toString(36);
-  let defs='',fill=pal.a;
-  if(useGradient){defs=`<defs><linearGradient id="${id}" x1="28%" y1="18%" x2="72%" y2="82%"><stop offset="0" stop-color="${pal.a}"/><stop offset="1" stop-color="${pal.b}"/></linearGradient></defs>`;fill=`url(#${id})`;}
-  const leftX=50-gap/2-eyeW/2,rightX=50+gap/2-eyeW/2;
-  const eyes=`<rect x="${leftX.toFixed(2)}" y="${(eyeY-eyeH/2).toFixed(2)}" width="${eyeW.toFixed(2)}" height="${eyeH.toFixed(2)}" rx="${(eyeW/2).toFixed(2)}" fill="${pal.eye}" transform="rotate(${eyeTilt.toFixed(2)} ${(50-gap/2).toFixed(2)} ${eyeY.toFixed(2)})"/><rect x="${rightX.toFixed(2)}" y="${(eyeY-eyeH/2).toFixed(2)}" width="${eyeW.toFixed(2)}" height="${eyeH.toFixed(2)}" rx="${(eyeW/2).toFixed(2)}" fill="${pal.eye}" transform="rotate(${eyeTilt.toFixed(2)} ${(50+gap/2).toFixed(2)} ${eyeY.toFixed(2)})"/>`;
-  const svg=`<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="Bean ${seed}">${defs}<g transform="rotate(${wholeTilt.toFixed(2)} 50 50)"><path d="${bean.d}" fill="${fill}"/>${eyes}</g></svg>`;
-  return {svg,traits:`${bean.name} · ${pal.name} · ${useGradient?'SOFT TONE':'FLAT'}`};
-}
+function bodyPath(seed){const r=rng(seed+'body-v5'),b=pick(r,builds),cx=60,cy=57,w=n(r,b.w[0],b.w[1]),h=n(r,b.h[0],b.h[1]),waist=n(r,b.waist[0],b.waist[1]),topBias=n(r,b.top[0],b.top[1]),belly=n(r,b.belly[0],b.belly[1]),lean=n(r,-2.3,2.3),left=cx-w,right=cx+w,top=cy-h,bottom=cy+h;const d=[`M ${cx+lean+topBias} ${top}`,`C ${right-9+lean} ${top-1}, ${right+1+lean} ${top+13}, ${right+lean} ${cy-10}`,`C ${right-waist+lean} ${cy+2}, ${right+belly+lean} ${cy+14}, ${right-3+lean} ${bottom-10}`,`C ${right-8+lean} ${bottom+1}, ${cx+11} ${bottom+3}, ${cx} ${bottom+2}`,`C ${cx-13} ${bottom+3}, ${left+7+lean} ${bottom}, ${left+3+lean} ${bottom-11}`,`C ${left-belly+lean} ${cy+15}, ${left+waist+lean} ${cy+3}, ${left+lean} ${cy-10}`,`C ${left-1+lean} ${top+14}, ${left+9+lean} ${top}, ${cx+lean+topBias} ${top}`,'Z'].join(' ');return{d,name:b.name,cx,cy,w,h,left,right,top,bottom,lean}}
+function armPath(side,pose,body,r){const s=side==='L'?-1:1,ax=body.cx+s*(body.w-3),ay=body.cy+2+n(r,-2,2),len=n(r,17,23);if(pose==='DOWN')return{d:`M ${ax} ${ay} Q ${ax+s*9} ${ay+7} ${ax+s*8} ${ay+len}`,hx:ax+s*8,hy:ay+len,name:'DOWN'};if(pose==='WAVE')return{d:`M ${ax} ${ay} Q ${ax+s*10} ${ay-5} ${ax+s*12} ${ay-17} Q ${ax+s*13} ${ay-23} ${ax+s*8} ${ay-26}`,hx:ax+s*8,hy:ay-26,name:'WAVE'};if(pose==='OUT')return{d:`M ${ax} ${ay} Q ${ax+s*11} ${ay-3} ${ax+s*len} ${ay+2}`,hx:ax+s*len,hy:ay+2,name:'OUT'};return{d:`M ${ax} ${ay} Q ${ax+s*10} ${ay+1} ${ax+s*11} ${ay+11} Q ${ax+s*7} ${ay+14} ${ax+s*3} ${ay+9}`,hx:ax+s*3,hy:ay+9,name:'HIP'}}
+function legPath(side,pose,body,r){const s=side==='L'?-1:1,lx=body.cx+s*n(r,9,13),ly=body.bottom-2,len=n(r,13,18);if(pose==='WIDE')return{d:`M ${lx} ${ly} Q ${lx+s*4} ${ly+8} ${lx+s*8} ${ly+len}`,fx:lx+s*8,fy:ly+len,name:'WIDE'};if(pose==='BENT')return{d:`M ${lx} ${ly} Q ${lx+s*2} ${ly+7} ${lx+s*5} ${ly+10} Q ${lx+s*1} ${ly+13} ${lx+s*7} ${ly+len}`,fx:lx+s*7,fy:ly+len,name:'BENT'};return{d:`M ${lx} ${ly} Q ${lx+s*1} ${ly+8} ${lx+s*2} ${ly+len}`,fx:lx+s*2,fy:ly+len,name:'STRAIGHT'}}
+function face(seed,body,pal){const r=rng(seed+'face-v5'),eyeType=pick(r,['DOT','SLIT','HAPPY','SLEEPY','WIDE']),mouthType=pick(r,['SMILE','OPEN','SMIRK','FLAT','TOOTHY','NONE']),gap=n(r,12,17),ey=body.cy-n(r,9,13),ex1=body.cx-gap/2,ex2=body.cx+gap/2;let eyes='';if(eyeType==='DOT')eyes=`<circle cx="${ex1}" cy="${ey}" r="2.15" fill="${pal.face}"/><circle cx="${ex2}" cy="${ey}" r="2.15" fill="${pal.face}"/>`;if(eyeType==='SLIT')eyes=`<rect x="${ex1-1.7}" y="${ey-4.8}" width="3.4" height="9.6" rx="1.7" fill="${pal.face}"/><rect x="${ex2-1.7}" y="${ey-4.8}" width="3.4" height="9.6" rx="1.7" fill="${pal.face}"/>`;if(eyeType==='HAPPY')eyes=`<path d="M ${ex1-3.5} ${ey+1} Q ${ex1} ${ey-3} ${ex1+3.5} ${ey+1}" fill="none" stroke="${pal.face}" stroke-width="2.4" stroke-linecap="round"/><path d="M ${ex2-3.5} ${ey+1} Q ${ex2} ${ey-3} ${ex2+3.5} ${ey+1}" fill="none" stroke="${pal.face}" stroke-width="2.4" stroke-linecap="round"/>`;if(eyeType==='SLEEPY')eyes=`<path d="M ${ex1-3.8} ${ey} Q ${ex1} ${ey+2} ${ex1+3.8} ${ey}" fill="none" stroke="${pal.face}" stroke-width="2.3" stroke-linecap="round"/><path d="M ${ex2-3.8} ${ey} Q ${ex2} ${ey+2} ${ex2+3.8} ${ey}" fill="none" stroke="${pal.face}" stroke-width="2.3" stroke-linecap="round"/>`;if(eyeType==='WIDE')eyes=`<ellipse cx="${ex1}" cy="${ey}" rx="3.2" ry="4.2" fill="#fff"/><ellipse cx="${ex2}" cy="${ey}" rx="3.2" ry="4.2" fill="#fff"/><circle cx="${ex1+.5}" cy="${ey+.6}" r="1.65" fill="${pal.face}"/><circle cx="${ex2+.5}" cy="${ey+.6}" r="1.65" fill="${pal.face}"/>`;const my=body.cy+n(r,6,10),mw=n(r,8,12);let mouth='';if(mouthType==='SMILE')mouth=`<path d="M ${body.cx-mw} ${my} Q ${body.cx} ${my+8} ${body.cx+mw} ${my}" fill="none" stroke="${pal.face}" stroke-width="2.3" stroke-linecap="round"/>`;if(mouthType==='OPEN')mouth=`<ellipse cx="${body.cx}" cy="${my+2}" rx="${mw*.65}" ry="${mw*.48}" fill="${pal.face}"/><path d="M ${body.cx-mw*.35} ${my+4} Q ${body.cx} ${my+7} ${body.cx+mw*.35} ${my+4}" fill="none" stroke="#ff9aae" stroke-width="2" stroke-linecap="round"/>`;if(mouthType==='SMIRK')mouth=`<path d="M ${body.cx-mw} ${my+2} Q ${body.cx+1} ${my+5} ${body.cx+mw} ${my-1}" fill="none" stroke="${pal.face}" stroke-width="2.3" stroke-linecap="round"/>`;if(mouthType==='FLAT')mouth=`<path d="M ${body.cx-mw*.75} ${my} H ${body.cx+mw*.75}" stroke="${pal.face}" stroke-width="2.4" stroke-linecap="round"/>`;if(mouthType==='TOOTHY')mouth=`<rect x="${body.cx-mw}" y="${my-2}" width="${mw*2}" height="8" rx="4" fill="#fff"/><path d="M ${body.cx} ${my-1} V ${my+5}" stroke="rgba(0,0,0,.16)" stroke-width="1"/>`;return{svg:eyes+mouth,eyeType,mouthType}}
+function make(seed){const style=rng(seed+'style-v5'),pal=pick(style,palettes),body=bodyPath(seed),armR=rng(seed+'arms-v5'),legR=rng(seed+'legs-v5'),leftArm=armPath('L',pick(armR,['DOWN','WAVE','OUT','HIP']),body,armR),rightArm=armPath('R',pick(armR,['DOWN','WAVE','OUT','HIP']),body,armR),leftLeg=legPath('L',pick(legR,['STRAIGHT','WIDE','BENT']),body,legR),rightLeg=legPath('R',pick(legR,['STRAIGHT','WIDE','BENT']),body,legR),f=face(seed,body,pal),id='b'+hash(seed+'defs-v5').toString(36),tilt=n(style,-3,3);const defs=`<defs><linearGradient id="${id}body" x1="24%" y1="10%" x2="76%" y2="92%"><stop offset="0" stop-color="${pal.top}"/><stop offset=".42" stop-color="${pal.mid}"/><stop offset="1" stop-color="${pal.low}"/></linearGradient><radialGradient id="${id}light" cx="31%" cy="18%" r="64%"><stop offset="0" stop-color="#fff" stop-opacity=".36"/><stop offset=".48" stop-color="#fff" stop-opacity=".08"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient><clipPath id="${id}clip"><path d="${body.d}"/></clipPath></defs>`;const limbs=`<g fill="none" stroke="${pal.limb}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="${leftArm.d}"/><path d="${rightArm.d}"/><path d="${leftLeg.d}"/><path d="${rightLeg.d}"/></g><g fill="${pal.limb}"><circle cx="${leftArm.hx}" cy="${leftArm.hy}" r="2.2"/><circle cx="${rightArm.hx}" cy="${rightArm.hy}" r="2.2"/></g><g fill="none" stroke="${pal.limb}" stroke-width="3" stroke-linecap="round"><path d="M ${leftLeg.fx-3} ${leftLeg.fy} Q ${leftLeg.fx} ${leftLeg.fy+1} ${leftLeg.fx+4} ${leftLeg.fy}"/><path d="M ${rightLeg.fx-3} ${rightLeg.fy} Q ${rightLeg.fx} ${rightLeg.fy+1} ${rightLeg.fx+4} ${rightLeg.fy}"/></g>`;const bodySvg=`<path d="${body.d}" fill="url(#${id}body)"/><g clip-path="url(#${id}clip)"><ellipse cx="42" cy="30" rx="35" ry="31" fill="url(#${id}light)"/><ellipse cx="84" cy="78" rx="24" ry="32" fill="${pal.low}" opacity=".10"/><path d="M ${body.cx-18} ${body.top+12} Q ${body.cx-3} ${body.top+3} ${body.cx+11} ${body.top+8}" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".16"/></g>`;const svg=`<svg viewBox="0 0 120 126" xmlns="http://www.w3.org/2000/svg" aria-label="Bean ${seed}">${defs}<g transform="rotate(${tilt.toFixed(2)} 60 63)">${limbs}${bodySvg}${f.svg}</g></svg>`;return{svg,traits:`${body.name} · ${pal.name} · ${f.eyeType}/${f.mouthType} · ${leftArm.name}/${rightArm.name}`}}
 function show(seed,anim=true){const x=make(seed),h=document.getElementById('hero');h.innerHTML=x.svg;if(anim)h.firstElementChild.classList.add('pop');document.getElementById('name').textContent='BEAN #'+seed;document.getElementById('traits').textContent=x.traits;document.getElementById('seed').value=seed}
 function fillGrid(base){const g=document.getElementById('grid');g.innerHTML='';let start=Number(base)||1;for(let i=0;i<18;i++){const seed=String(start+i),x=make(seed),c=document.createElement('div');c.className='card';c.innerHTML=x.svg+`<span>#${seed}</span>`;c.onclick=()=>show(seed);g.appendChild(c)}}
 document.getElementById('use').onclick=()=>{const s=document.getElementById('seed').value.trim()||'1';show(s);fillGrid(s)};
 document.getElementById('random').onclick=()=>{const s=Math.floor(Math.random()*99999)+1;show(s);fillGrid(s)};
-document.getElementById('seed').onkeydown=e=>{if(e.key==='Enter')document.getElementById('use').click()};
-show('420',false);fillGrid(420);
+document.getElementById('seed').onkeydown=e=>{if(e.key==='Enter')document.getElementById('use').click()};show('420',false);fillGrid(420);
 </script>
 </body>
 </html>
